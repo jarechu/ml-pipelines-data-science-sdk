@@ -1,6 +1,6 @@
 ## **Build end-to-end ML/AI workflows with the AWS Step Functions Data Science SDK**
 
-*This repository contains the sample notebook described in this AWS Machine Learning [blog post]().*
+*This repository contains the sample notebook described in this AWS Machine Learning [blog post](https://github.com/rodzanto/ml-pipelines-data-science-sdk).*
 
 ## **Overview**
 
@@ -18,38 +18,41 @@ This example considers the following architecture, where the AWS Step Functions 
   <img src="images/sample_architecture.jpg" width="70%" height="70%">
 </p>
 
-For running this workshop you will need:
+For running this lab you will need to:
 * Create an Amazon SageMaker notebook instance
 * Adjust the permissions for your AWS IAM role
-* Follow the steps in the sample notebook provided
+* Run the cells in the sample notebook provided, one by one
+as per the following steps...
 
 ### **1. Create an Amazon SageMaker notebook instance**
 
 To create a Amazon SageMaker notebook instance:
 
-- Open the Amazon SageMaker console for your account at https://console.aws.amazon.com/sagemaker/, or in case of AWS events follow the link provided.
+- Open the Amazon SageMaker console for your account at https://console.aws.amazon.com/sagemaker/.
 - Choose "Notebook instances", then choose Create notebook instance.
 - On the "Create notebook instance" page, provide the following information:
   - For Notebook instance name, type a name for your notebook instance.
   - For Notebook instance type, choose "ml.t3.medium" unless told otherwise.
-  - For IAM role, choose "Create a new role". Amazon SageMaker creates an IAM role named "AmazonSageMaker-ExecutionRole-YYYYMMDDTHHmmSS". The AWS managed policy AmazonSageMakerFullAccess is attached to the role. The role provides permissions that allow the notebook instance to call Amazon SageMaker and Amazon S3. Note the name of this role, as you will need to attach additional permissions to it later.
-  - For Git repositories, choose "Clone a public Git repository to this notebook instance only", then add the URL: https://github.com/rodzanto/ml-pipelines-data-science-sdk
+  - For IAM role, choose "Create a new role". In the pop-up window, for S3 buckets choose "Any S3 bucket" and hit "Create role". Amazon SageMaker creates an IAM role named "AmazonSageMaker-ExecutionRole-YYYYMMDDTHHmmSS". The AWS managed policy AmazonSageMakerFullAccess is attached to the role. The role provides permissions that allow the notebook instance to call Amazon SageMaker and Amazon S3. *Note the name of this role, as you will need to attach additional permissions to it later.*
+  - Back in the Create notebook interface, expand "Git repositories" and choose "Clone a public Git repository to this notebook instance only", then add the URL: https://github.com/rodzanto/ml-pipelines-data-science-sdk
   - Finally choose "Create notebook instance".
 
-In a few minutes, Amazon SageMaker launches an ML compute instance —in this case, a notebook instance— and attaches an ML storage volume to it. The notebook instance has a preconfigured Jupyter notebook server and a set of Anaconda libraries.
+In a few minutes, Amazon SageMaker launches an ML compute instance —in this case a notebook instance— and attaches an ML storage volume to it. The notebook instance has a preconfigured Jupyter notebook server and a set of Anaconda libraries.
 
 When the status of the notebook instance is "InService" in the console, the notebook instance is ready to use.
 
+You can continue with the next step in the meantime.
+
 ### 2. **Add permissions to your AWS IAM role**
 
-- Open the AWS IAM console by choosing "IAM" in the "Services" menu.
-- Choose "Roles", and search the role you created in the previous step. It should be named "AmazonSageMaker-ExecutionRole-YYYYMMDDTHHmmSS".
-- Choose "Attach policies", and search for "AWSLambdaFullAccess", select the checkbox next to it and choose "Attach policy".
+- Open the AWS IAM console by opening "Services" in the top menu, and choosing "IAM".
+- Choose "Roles", and search for the role you created in the previous step (it should be named "AmazonSageMaker-ExecutionRole-YYYYMMDDTHHmmSS"), and click on it.
+- Choose "Attach policies", and search for "AWSLambdaFullAccess", select the checkbox next to it and choose "Attach policy". Repeat this step for "AmazonS3FullAccess".
 
 ### 3. **Run the Data Science SDK notebook**
 
-- Go back to the Amazon SageMaker console, choose "Notebook instances", and open the notebook you created by choosing "Open Jupyter".
-- Open the sample notebook provided "amazon-sagemaker-e2e-workflows-data-science-sdk.ipynb", and follow the instructions provided in it.
+- Go back to the Amazon SageMaker console, choose "Notebook instances", and open the notebook you created by choosing "Open Jupyter". Note the notebook instance should be in "In service" status for having this option.
+- Click on the sample notebook provided "amazon-sagemaker-e2e-workflows-data-science-sdk.ipynb", and follow the instructions provided in it.
 
 ## **References**
 
