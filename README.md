@@ -45,14 +45,18 @@ You can continue with the next step in the meantime.
 
 ### 2. **Add permissions to your AWS IAM role**
 
-- Open the AWS IAM console by opening "Services" in the top menu, and choosing "IAM".
+- Open the AWS IAM console by going to "Services" in the top menu, and choosing "IAM".
 - Choose "Roles", and search for the role you created in the previous step (it should be named "AmazonSageMaker-ExecutionRole-YYYYMMDDTHHmmSS"), and click on it.
 - Choose "Attach policies", and search for "AWSLambdaFullAccess", select the checkbox next to it and choose "Attach policy". Repeat this step for "AmazonS3FullAccess".
+- Optionally, you can create a new bucket for using during this lab. In order to do this, you can open the Amazon S3 console by going to "Services" in the top menu and choosing "S3", then choosing "Create bucket". Make sure you keep the same region as per the instructions for the account you were assigned to, and assign a name that is unique e.g. "name-lastname-data-science-workshop".
 
 ### 3. **Run the Data Science SDK notebook**
 
 - Go back to the Amazon SageMaker console, choose "Notebook instances", and open the notebook you created by choosing "Open Jupyter". Note the notebook instance should be in "In service" status for having this option.
-- Click on the sample notebook provided "amazon-sagemaker-e2e-workflows-data-science-sdk.ipynb", and follow the instructions provided in it.
+- Click on the sample notebook provided "amazon-sagemaker-e2e-workflows-data-science-sdk.ipynb", and follow the instructions provided in it. Note the following important tips:
+  - The first time you run the notebook, make sure you uncomment the lines for "import sys" and "pip install --upgrade stepfunctions" and run those. You can comment those back once done. This will install/update the Data Science SDK in the notebook instance.
+  - Some cells require you to add your Account and Role before running, make sure you check for comments before running those.
+  - Note the AWS Lambda functions definitions also require you to add the S3 bucket name, or alternatively set the "session.default_bucket()" parameter to it.
 
 ## **References**
 
