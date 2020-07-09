@@ -58,6 +58,7 @@ You can continue with the next step in the meantime.
       "Effect": "Allow",
       "Principal": {
         "Service": [
+          "sagemaker.amazonaws.com",
           "lambda.amazonaws.com",
           "states.amazonaws.com"
         ]
