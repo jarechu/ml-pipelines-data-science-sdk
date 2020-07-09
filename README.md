@@ -55,21 +55,14 @@ You can continue with the next step in the meantime.
   "Version": "2012-10-17",
   "Statement": [
     {
-      "Effect": "Allow",
-      "Principal": {
-        "Service": [
-          "sagemaker.amazonaws.com",
-          "lambda.amazonaws.com",
-          "states.amazonaws.com"
-        ]
-      },
-      "Action": "sts:AssumeRole"
-    },
-    {
       "Sid": "",
       "Effect": "Allow",
       "Principal": {
-        "Service": "states.amazonaws.com"
+        "Service": [
+          "states.amazonaws.com",
+          "lambda.amazonaws.com",
+          "sagemaker.amazonaws.com"
+        ]
       },
       "Action": "sts:AssumeRole"
     }
