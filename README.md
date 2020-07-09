@@ -47,8 +47,36 @@ You can continue with the next step in the meantime.
 
 - Open the AWS IAM console by going to "Services" in the top menu, and choosing "IAM".
 - Choose "Roles", and search for the role you created in the previous step (it should be named "AmazonSageMaker-ExecutionRole-YYYYMMDDTHHmmSS"), and click on it.
-- Choose "Attach policies", and search for "AWSLambdaFullAccess", select the checkbox next to it and choose "Attach policy". Repeat this step for "AmazonS3FullAccess".
-- Optionally, you can create a new bucket for using during this lab. In order to do this, you can open the Amazon S3 console by going to "Services" in the top menu and choosing "S3", then choosing "Create bucket". Make sure you keep the same region as per the instructions for the account you were assigned to, and assign a name that is unique e.g. "name-lastname-data-science-workshop".
+- Choose "Attach policies", and search for "AWSLambdaFullAccess", select the checkbox next to it and choose "Attach policy". Repeat this step for attaching the policy "AmazonS3FullAccess".
+- Now choose "Trust relationships", and "Edit trust relationship". Replace the policy shown with the following for allowing the execution of the AWS Step Functions workflow in our notebook:
+
+```json
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Principal": {
+        "Service": [
+          "lambda.amazonaws.com",
+          "states.amazonaws.com"
+        ]
+      },
+      "Action": "sts:AssumeRole"
+    },
+    {
+      "Sid": "",
+      "Effect": "Allow",
+      "Principal": {
+        "Service": "states.amazonaws.com"
+      },
+      "Action": "sts:AssumeRole"
+    }
+  ]
+}
+```
+- Then click "Update Trust Policy".
+- (Optionally), you can create a new bucket for using during this lab. In order to do this, you can open the Amazon S3 console by going to "Services" in the top menu and choosing "S3", then choosing "Create bucket". Make sure you keep the same region as per the instructions for the account you were assigned to, and assign a name that is unique e.g. "name-lastname-data-science-workshop".
 
 ### 3. **Run the Data Science SDK notebook**
 
