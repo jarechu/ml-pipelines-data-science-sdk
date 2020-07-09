@@ -76,7 +76,7 @@ You can continue with the next step in the meantime.
 }
 ```
 - Then click "Update Trust Policy".
-- (Optionally), you can create a new bucket for using during this lab. In order to do this, you can open the Amazon S3 console by going to "Services" in the top menu and choosing "S3", then choosing "Create bucket". Make sure you keep the same region as per the instructions for the account you were assigned to, and assign a name that is unique e.g. "name-lastname-data-science-workshop".
+- Finally, you can create a new bucket for using during this lab. In order to do this, you can open the Amazon S3 console by going to "Services" in the top menu and choosing "S3", then choosing "Create bucket". Make sure you keep the same region as per the instructions for the account you were assigned to, and assign a name that is unique e.g. "name-lastname-data-science-workshop".
 
 ### 3. **Run the Data Science SDK notebook**
 
